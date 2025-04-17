@@ -1,0 +1,56 @@
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+    <title>Cliente</title>
+</head>
+<body>
+<wicket:panel>
+    <div wicket:id="feedback"></div>
+    <form wicket:id="form">
+        <label>Tipo de Pessoa:</label>
+        <select wicket:id="tipoPessoa"></select>
+
+        <div>
+            <label>CPF/CNPJ:</label>
+            <input type="text" wicket:id="cpfCnpj"/>
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input type="email" wicket:id="email"/>
+        </div>
+
+        <div wicket:id="fisicaContainer">
+            <div>
+                <label>Nome:</label>
+                <input type="text" wicket:id="nome"/>
+            </div>
+            <div>
+                <label>RG:</label>
+                <input type="text" wicket:id="rg"/>
+            </div>
+            <div>
+                <label>Data de Nascimento:</label>
+                <input type="date" wicket:id="dataNascimento"/>
+            </div>
+        </div>
+
+        <div wicket:id="juridicaContainer">
+            <div>
+                <label>Razão Social:</label>
+                <input type="text" wicket:id="razaoSocial"/>
+            </div>
+            <div>
+                <label>Inscrição Estadual:</label>
+                <input type="text" wicket:id="inscricaoEstadual"/>
+            </div>
+            <div>
+                <label>Data de Criação:</label>
+                <input type="date" wicket:id="dataCriacao"/>
+            </div>
+        </div>
+
+        <button type="submit" wicket:id="salvar">Salvar</button>
+    </form>
+</wicket:panel>
+</body>
+</html>
