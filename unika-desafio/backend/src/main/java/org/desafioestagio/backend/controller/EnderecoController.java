@@ -42,29 +42,7 @@ public class EnderecoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Endereco> atualizarEndereco(@PathVariable Long id, @RequestBody Endereco enderecoAtualizado) {
-        // Buscar o endereço existente
-        Endereco enderecoExistente = enderecoRepository.findById(id).orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
-
-        // Atualizar os campos do endereço
-        enderecoExistente.setLogradouro(enderecoAtualizado.getLogradouro());
-        enderecoExistente.setNumero(enderecoAtualizado.getNumero());
-        enderecoExistente.setCep(enderecoAtualizado.getCep());
-        enderecoExistente.setBairro(enderecoAtualizado.getBairro());
-        enderecoExistente.setTelefone(enderecoAtualizado.getTelefone());
-        enderecoExistente.setCidade(enderecoAtualizado.getCidade());
-        enderecoExistente.setEstado(enderecoAtualizado.getEstado());
-        enderecoExistente.setComplemento(enderecoAtualizado.getComplemento());
-        enderecoExistente.setPrincipal(enderecoAtualizado.isPrincipal());
-
-        // Buscar o cliente com id "7" e associar ao endereço
-        Cliente cliente = clienteRepository.findById(enderecoAtualizado.getClienteId())
-                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-
-        enderecoExistente.setCliente(cliente); // Associar o cliente
-
-        // Salvar o endereço atualizado
-        Endereco enderecoSalvo = enderecoRepository.save(enderecoExistente);
-
+        Endereco enderecoSalvo = enderecoService.atualizarEndereco(id, enderecoAtualizado);
         return ResponseEntity.ok(enderecoSalvo);
     }
 

@@ -1,12 +1,21 @@
 package org.desafioestagio.wicket.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.wicket.model.IModel;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 @Setter
 @Getter
-public class EnderecoDTO {
+public class EnderecoDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @JsonBackReference
+    private ClienteDTO clienteDTO;
+
     private Long id;
     private String logradouro;
     private String numero;
@@ -17,9 +26,13 @@ public class EnderecoDTO {
     private String estado;
     private boolean principal;
     private String complemento;
-    private Long clienteId;  // Refere-se ao ID do cliente, pois a associação é feita pelo ID
     private boolean enderecoPrincipal;
 
-    // Getters e Setters
-
+    // Método para setar o clienteId (caso precise)
+    public void setClienteId(Long clienteId) {
+        if (this.clienteDTO == null) {
+            this.clienteDTO = new ClienteDTO();
+        }
+        this.clienteDTO.setId(clienteId);
+    }
 }

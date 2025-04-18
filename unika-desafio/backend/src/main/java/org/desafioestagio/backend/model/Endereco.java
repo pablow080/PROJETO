@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Entity
 public class Endereco {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

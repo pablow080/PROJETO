@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PROJETO.iml" filepath="$PROJECT_DIR$/.idea/PROJETO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unika-desafio (1).iml" filepath="$PROJECT_DIR$/unika-desafio (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/unika-desafio/wicket/wicket.iml" filepath="$PROJECT_DIR$/unika-desafio/wicket/wicket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wicket/wicket (1).iml" filepath="$PROJECT_DIR$/wicket/wicket (1).iml" />
     </modules>
   </component>
 </project>

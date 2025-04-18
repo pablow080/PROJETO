@@ -1,15 +1,14 @@
 package org.desafioestagio.wicket.dto;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
-import org.desafioestagio.wicket.dto.EnderecoDTO;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-// ClienteDTO.java
 @Getter
 @Setter
 public class ClienteDTO implements Serializable {
@@ -17,7 +16,7 @@ public class ClienteDTO implements Serializable {
     private String cpfCnpj;
     private String email;
     private boolean ativo;
-    private String tipoPessoa; // "FISICA" ou "JURIDICA"
+    private String tipoPessoa;
 
     // Pessoa Física
     private String nome;
@@ -29,17 +28,10 @@ public class ClienteDTO implements Serializable {
     private String inscricaoEstadual;
     private LocalDate dataCriacao;
 
+    @JsonManagedReference
     private List<EnderecoDTO> enderecos = new ArrayList<>();
 
     public EnderecoDTO getEndereco() {
         return enderecos != null && !enderecos.isEmpty() ? enderecos.get(0) : null;
-    }
-
-    public boolean isPessoaFisica() {
-        return "FISICA".equalsIgnoreCase(tipoPessoa);
-    }
-
-    public boolean isPessoaJuridica() {
-        return "JURIDICA".equalsIgnoreCase(tipoPessoa);
     }
 }

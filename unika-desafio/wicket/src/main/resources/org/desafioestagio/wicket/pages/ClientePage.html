@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:wicket="http://wicket.apache.org" lang="pt-br">
+<html xmlns:wicket="http://wicket.apache.org">
 <head>
+    <title>Clientes</title>
     <meta charset="UTF-8">
-    <title>Lista de Clientes</title>
 </head>
-<body style="background-color: #030010">
-<h1 style="color: white">Lista de Clientes</h1>
+<body>
 
-<a wicket:id="createLink" class="create-link" style="color: #ee00ff">Novo Cliente</a>
+<h1>Lista de Clientes</h1>
 
-<table>
+<!-- Formulário de busca -->
+<form wicket:id="searchForm">
+    <input type="text" placeholder="Buscar por nome, razão social ou CPF/CNPJ"/>
+    <button type="submit" wicket:id="searchButton">Buscar</button>
+</form>
+
+<br/>
+
+<!-- Link para criar novo cliente -->
+<a wicket:id="createLink">Novo Cliente</a>
+
+<br/><br/>
+
+<!-- Tabela de clientes -->
+<table border="1">
     <thead>
-    <tr style="background-color: rgba(96,35,238,0.85); color: white">
+    <tr>
         <th>ID</th>
         <th>Tipo</th>
         <th>CPF/CNPJ</th>
         <th>Nome/Razão Social</th>
-        <th>RG/Insc. Estadual</th>
+        <th>RG/Inscrição Estadual</th>
         <th>Data Nasc./Criação</th>
         <th>Email</th>
         <th>Telefone</th>
         <th>CEP</th>
         <th>Status</th>
-        <th style="background-color: darkmagenta">Ações</th>
+        <th>Ações</th>
     </tr>
     </thead>
     <tbody>
-    <tr wicket:id="clienteRow" style="background-color: rgb(182,173,250)">
+    <tr wicket:id="clienteRow">
         <td><span wicket:id="id"></span></td>
         <td><span wicket:id="tipo"></span></td>
         <td><span wicket:id="cpfCnpj"></span></td>
@@ -37,12 +50,13 @@
         <td><span wicket:id="telefone"></span></td>
         <td><span wicket:id="cep"></span></td>
         <td><span wicket:id="ativo"></span></td>
-        <td class="actions">
-            <a wicket:id="editLink">Editar</a>
+        <td>
+            <a wicket:id="editLink">Editar</a> |
             <a wicket:id="deleteLink">Excluir</a>
         </td>
     </tr>
     </tbody>
 </table>
+
 </body>
 </html>
